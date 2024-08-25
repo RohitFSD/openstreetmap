@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import React, { useState, useEffect, useRef } from "react";
 import "leaflet/dist/leaflet.css";
 import icon from "./Images/icon.png";
@@ -77,7 +77,7 @@ export default function Osm() {
 
   const movingIcon = new L.Icon({
     iconUrl: icon,
-    iconSize: [, 35],
+    iconSize: ["", 35],
     iconAnchor: [-15, 10],
     className: "rotating-icon",
   });
@@ -115,7 +115,7 @@ export default function Osm() {
         iconElement.style.transform = `${existingTransform} ${rotateTransform}`;
       }
     }
-  }, [currentPosition]);
+  }, [bearing, currentPosition]);
 
   function MapView() {
     const map = useMap();
